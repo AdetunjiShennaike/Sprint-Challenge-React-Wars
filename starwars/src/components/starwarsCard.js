@@ -5,7 +5,7 @@ import './StarWars.css'
 function CharacterCard(props) {
   return (
     <div className='card-container'>
-      <div className={`card card-item-front`}>
+      <div className={`card card-item-front display${props.card.toggle ? '' : ' diplay'}`} onClick={() => props.toggle(props.card.url)}>
         <h3>{props.card.name}</h3>
         <div className='info'>
           <div className='left-row'>
@@ -30,7 +30,7 @@ function CharacterCard(props) {
         </div>
       </div>
 
-      <div className={`card card-item-back`}>
+      <div className={`card card-item-back${props.card.toggle ? ' diplay' : ''}`} onClick={() => props.toggle(props.card.url)}>
         <h3><a href={props.card.url} alt='link'>More on {props.card.name}</a></h3>
         <div className='info'>
           <div className='left-row'>
@@ -38,13 +38,13 @@ function CharacterCard(props) {
 
             <p><span>Edited: </span>{props.card.edited}</p>
 
-            <p><span>Featured Films: </span>{props.card.films.map((element, i) => {
-              <a href={element}>Movie #{i}</a>
+            <p><span>Featured Films: </span>{props.card.films.forEach((element, i) => {
+              <a href={element.i}>Movie #{i}</a>
             })}</p>
           </div>
 
           <div className='right-side'>
-            <p><span>Homeworld: </span>{props.card.homeworld}</p>
+            <p><span><a href={props.card.homeworld} alt='home'>Homeworld</a></span></p>
 
             <p><span>Star Ships: </span>{props.card.starships}</p>
 

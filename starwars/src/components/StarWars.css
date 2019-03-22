@@ -1,6 +1,6 @@
 .card-container {
   width: 500px;
-  height: 400px;
+  height: 250px;
   margin: 0 15%;
 }
 
@@ -17,6 +17,10 @@ p span {
   text-decoration-line: underline;
 }
 
+a {
+  text-decoration: none;
+}
+
 .info {
   display: flex;
   justify-content: space-between;
@@ -27,4 +31,9 @@ p span {
   border: 2px solid orangered;
   border-radius: 5px;
   margin: 10px 0;
+  display: none;
+}
+
+.display {
+  display: block;
 }
