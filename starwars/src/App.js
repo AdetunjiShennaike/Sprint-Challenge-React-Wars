@@ -45,8 +45,9 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
-        data.results.map(item => item.check = false)
-        this.setState({ starwarsChars: data.results });
+        const itemlist = data.results.map(item =>  {return {...item, check:false}})
+        this.setState({ starwarsChars:  itemlist});
+        console.log(this.state.starwarsChars)
       })
       .catch(err => {
         throw new Error(err);
