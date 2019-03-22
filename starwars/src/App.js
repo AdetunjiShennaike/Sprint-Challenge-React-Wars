@@ -1,6 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import CharacterCard from './components/starwarsCard'
+
+// let characterCard = {   
+//   birth_year: '',
+//   created: '',
+//   edited: '',
+//   eye_color: '',
+//   films: [],
+//   gender: '',
+//   hair_color: '',
+//   height: '',
+//   homeworld: '',
+//   mass: '',
+//   name: '',
+//   skin_color: '',
+//   species: [],
+//   startships: [],
+//   url: '',
+//   vehicles: [],
+//   check: false
+// }
+
+
 class App extends Component {
   constructor() {
     super();
@@ -22,6 +45,7 @@ class App extends Component {
         return res.json();
       })
       .then(data => {
+        data.results.map(item => item.check = false)
         this.setState({ starwarsChars: data.results });
       })
       .catch(err => {
@@ -29,10 +53,33 @@ class App extends Component {
       });
   };
 
+  toggle= (event) => {
+    let change = this.state.starwarsChars.map(card => {
+      if (card.url === event) {
+        card.check = !card.check;
+        return card
+      }
+      else {
+        return card
+      }
+
+    }) 
+
+    this.setState = {
+      starwarsChars: change
+    }
+    console.log(change)
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className="Header">React Wars</h1>
+        <div className='character-container'>
+        {console.log(this.state.starwarsChars)}
+         {this.state.starwarsChars.map( event =>
+          <CharacterCard key={event.url} card={event} toggle={this.toggle}/>)}
+        </div>
       </div>
     );
   }
