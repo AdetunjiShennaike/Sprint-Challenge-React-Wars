@@ -5,7 +5,7 @@ import './StarWars.css'
 function CharacterCard(props) {
   return (
     <div className='card-container'>
-      <div className={`card card-item-front display${props.card.toggle ? '' : ' diplay'}`} onClick={() => props.toggle(props.card.url)}>
+      <div className={`card card-item-front display${props.card.check ? '' : ' diplay'}`} onClick={() => props.toggle(props.card.url)}>
         <h3>{props.card.name}</h3>
         <div className='info'>
           <div className='left-row'>
@@ -30,7 +30,7 @@ function CharacterCard(props) {
         </div>
       </div>
 
-      <div className={`card card-item-back${props.card.toggle ? ' diplay' : ''}`} onClick={() => props.toggle(props.card.url)}>
+      <div className={`card card-item-back${props.card.check ? ' diplay' : ''}`} onClick={() => props.toggle(props.card.url)}>
         <h3><a href={props.card.url} alt='link'>More on {props.card.name}</a></h3>
         <div className='info'>
           <div className='left-row'>
