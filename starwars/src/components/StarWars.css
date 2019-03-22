@@ -1,0 +1,30 @@
+.card-container {
+  width: 500px;
+  height: 400px;
+  margin: 0 15%;
+}
+
+h3 {
+  text-align: left;
+}
+
+p{
+  text-align: right;
+}
+
+p span {
+  font-weight: bold;
+  text-decoration-line: underline;
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 20px; 
+}
+
+.card {
+  border: 2px solid orangered;
+  border-radius: 5px;
+  margin: 10px 0;
+}

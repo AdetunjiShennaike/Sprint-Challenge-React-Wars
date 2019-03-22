@@ -5,44 +5,53 @@ import './StarWars.css'
 function CharacterCard(props) {
   return (
     <div className='card-container'>
-      <div className={`card-item-front`}>
+      <div className={`card card-item-front`}>
         <h3>{props.card.name}</h3>
+        <div className='info'>
+          <div className='left-row'>
+            <p><span>Birth Year: </span> {props.card.birth_year}</p>
 
-        <p>{props.card.birth_year}</p>
+            <p><span>Eye Color: </span>{props.card.eye_color}</p>
 
-        <p>{props.card.eye_color}</p>
+            <p><span>Hair Color: </span>{props.card.hair_color}</p>
 
-        <p>{props.card.hair_color}</p>
+            <p><span>Gender: </span>{props.card.gender}</p>
+          </div>
 
-        <p>{props.card.gender}</p>
+          <div className='right-row'>
+            <p><span>Height: </span>{props.card.height}</p>
 
-        <p>{props.card.height}</p>
+            <p><span>Weight: </span>{props.card.mass}</p>
 
-        <p>{props.card.mass}</p>
+            <p><span>Skin Color: </span>{props.card.skin_color}</p>
 
-        <p>{props.card.skin_color}</p>
-
-        <p>{props.card.species}</p>
-      
+            <p><a href={props.card.species} alt='species'>Species</a></p>
+          </div>
+        </div>
       </div>
 
-      <div className={`card-item-back`}>
-        <h3>{props.card.url}</h3>
+      <div className={`card card-item-back`}>
+        <h3><a href={props.card.url} alt='link'>More on {props.card.name}</a></h3>
+        <div className='info'>
+          <div className='left-row'>
+            <p><span>Created: </span>{props.card.created}</p>
 
-        <p>{props.card.created}</p>
+            <p><span>Edited: </span>{props.card.edited}</p>
 
-        <p>{props.card.edited}</p>
+            <p><span>Featured Films: </span>{props.card.films.map((element, i) => {
+              <a href={element}>Movie #{i}</a>
+            })}</p>
+          </div>
 
-        <p>{props.card.films}</p>
+          <div className='right-side'>
+            <p><span>Homeworld: </span>{props.card.homeworld}</p>
 
-        <p>{props.card.homeworld}</p>
+            <p><span>Star Ships: </span>{props.card.starships}</p>
 
-        <p>{props.card.starships}</p>
-
-        <p>{props.card.vehicles}</p>
-      
-      </div>
-      
+            <p><span>Vehicles: </span>{props.card.vehicles}</p>
+          </div>
+        </div>
+      </div> 
     </div>
   )
 }
